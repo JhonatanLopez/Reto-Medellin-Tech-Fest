@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es"> 
+    <head>
+     <title>Lucha Pokemon</title>    
+     <meta charset="UTF-8">
+     <meta name="title" content="Lucha Pokemon">
+     <meta name="Lucha Pokemon" content="Lucha Pokemon"> 
+     <body style="background-color:rgb(190, 206, 145);"></body>
+     
+        <script>
+            window.onload = init;
+
+            function init()
+            {
+            actualizar.addEventListener("click",cargarDatos1);
+            }
+
+            function cargarDatos1()
+            {
+            let aleatorio = Math.round(Math.random()*(100-1)+parseInt(1));;
+            let url = "https://pokeapi.co/api/v2/pokemon/"+aleatorio;
+            fetch(url)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                mascota1.src = json.sprites.front_default;
+                nombre1.innerHTML = json.name;
+                peso1.innerHTML = json.weight;
+                
+            })
+            let aleatorio1 = Math.round(Math.random()*(100-1)+parseInt(1));;
+            let url1 = "https://pokeapi.co/api/v2/pokemon/"+aleatorio1;
+            fetch(url1)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                mascota.src = json.sprites.front_default;
+                nombre.innerHTML = json.name;
+                peso.innerHTML = json.weight;
+                
+            });
+
+                          
+        }
+        </script>
+         <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    </head>
+    <header>
+        <div clas="container">
+
+            <div align="center"><img src="https://k45.kn3.net/D57E64F39.png" width="500" height="100" class="img-fluid" alt="Responsive image" style= "margin-top: 80px;" ></div>
+       
+    </div>
+    </header>
+    <body>
+        <div class="container embed-responsive-item text-center" style="background: rgb(107, 206, 156);border-radius: 20px;">
+            <div class="row">
+              <div class="col-sm">
+                
+                   
+                        <img src="https://icons.iconarchive.com/icons/iconka/tailwaggers/128/dog-rich-icon.png" alt="Mi mascota" id="mascota">
+                        <div class="card-body">
+                          <h5 class="card-title">Nombre: <span id="nombre"></span> </h5>
+                          <h5 class="card-title">Peso: <span id="peso"></span> </h5>
+                          
+                        </div> 
+              </div>
+              <div class="col-sm">
+                <a id="actualizar" class="btn btn-primary">Luchar</a>
+              </div>
+              <div class="col-sm">
+                
+                    <img src="https://icons.iconarchive.com/icons/seanau/kungfu-panda/128/Panda-icon.png" alt="Mi mascota" id="mascota1">
+                    <div class="card-body">
+                     <h5 class="card-title">Nombre: <span id="nombre1"></span> </h5>
+                     <h5 class="card-title">Peso: <span id="peso1"></span> </h5>
+                     
+                     
+                    </div>
+              </div>
+            </div>
+        </div>
+         
+        <footer>
+            <h1>Reto Medellin Tech Fest</h1>
+            <a href="https://medellintechfest.com/">Medellin Tech Fest 2020</a>
+        </footer>
+    </body>
+</html>
